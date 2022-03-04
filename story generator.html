@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Tobi Olusesi">
+        <meta name="description" content="complexjavascriptwork">
+        <style>
+            #abol {
+                text-align: right;
+                float: left;
+                }
+            #fl {
+                display: flex;
+                flex-direction: column;
+            }
+            #don {font-family: Tahoma}
+        </style>
+    </head>
+    <body onload="disp()">
+        <h1>Story Generator</h1>
+        <p>
+            Enter appropriate values in all of the test boxes. Then click the Done button to generate<br>
+            a story with your entered values plugged into it.
+        </p><br>
+        <section>
+        <div id="fl">
+            <div>
+        <form id="abol">
+            <label for="nou">noun:&nbsp;</label>
+            <input type="text" id="nou" size="11" maxlength="10"><br>
+            <label for="pastv">past tense verb:&nbsp;</label>
+            <input type="text" id="pastv" size="11" maxlength="10"><br>
+            <label for="adj">adjective:&nbsp;</label>
+            <input type="text" id="adj" size="11" maxlength="10"><br>
+            <label for="past">past tense verb:&nbsp;</label>
+            <input type="text" id="past" size="11" maxlength="10"><br>
+            <label for="ad">adjective:&nbsp;</label>
+            <input type="text" id="ad" size="11" maxlength="10"><br><br>
+        </form>
+            </div>
+            <div>
+            <input type="button" form="abol" id="don" value="Done" onclick="done()">
+            <input type="button" form="abol" id="res" value="Reset" onclick="rese()">
+            </div>
+        </div>
+        </section>
+        <section>
+            <p id="two">
+                It was a dark and stormy night. A short rang out! A<span id="fir"></span> slammed. The maid <span id="sec"></span>
+                . Suddenly
+                , a <span id="thir"></span>
+                 ship appeared on the horizon! While millions of people <span id="fou"></span>
+                , the king lived in luxury. Meanwhile, on a <span id="fif"></span>
+                 farm in kansas, a boy was growing up.<br><br>
+                The End<br><br>
+                <input type="button" id="retur" value="Return" onclick="ret()">
+            </p>
+        </section>
+        <script>
+            var noun // input box for noun
+            var pastTense1 // input box for past tense verb 1
+            var adjective1 // input box for adjective
+            var pastTense2 // input box for past tense 2
+            var adjective2 // input box for adjective 2 
+
+            // functiom declaration begins for done action
+            function done () {
+                noun = document.getElementById("nou").value;
+                pastTense1 = document.getElementById("pastv").value;
+                adjective1 = document.getElementById("adj").value;
+                pastTense2 = document.getElementById("past").value;
+                adjective2 = document.getElementById("ad").value;
+                document.getElementById("abol").style.setProperty("display", "none");
+                document.getElementById("two").style.setProperty("display", "block");
+                document.getElementById("don").style.setProperty("display", "none");
+                document.getElementById("res").style.setProperty("display", "none");
+                document.getElementById("fir").innerHTML = noun;
+                document.getElementById("sec").innerHTML = pastTense1;
+                document.getElementById("thir").innerHTML = adjective1;
+                document.getElementById("fou").innerHTML = pastTense2;
+                document.getElementById("fif").innerHTML = adjective2;
+            } 
+                //*************************************************************************
+                // function declaration begins for onload display for html
+            function disp () {
+                document.getElementById("abol").style.setProperty("display", "block");
+                document.getElementById("two").style.setProperty("display", "none");
+            }
+                //*************************************************************************
+                // function declaration begins for return button
+            function ret () {
+                document.getElementById("abol").style.setProperty("display", "block");
+                document.getElementById("two").style.setProperty("display", "none");
+                document.getElementById("don").style.setProperty("display", "inline-block");
+                document.getElementById("res").style.setProperty("display", "inline-block");
+            }
+                //***********************************************************************
+                // function declaration begins for reset button
+            function rese () {
+                document.getElementById("nou").value = "";
+                document.getElementById("pastv").value = "";
+                document.getElementById("adj").value = "";
+                document.getElementById("past").value = "";
+                document.getElementById("ad").value = "";
+            }
+        </script>
+    </body>
+</html>
